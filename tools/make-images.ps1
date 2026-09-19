@@ -136,10 +136,10 @@ function New-Card {
     Write-Output "wrote $file"
 }
 
-New-Card 'og-home.png'     'Buache Systems' 'European software, on machines you own. Desktop applications for Linux that keep your documents on your own disk.'
-New-Card 'og-paint.png'    'Paint'    'A simple, easy-to-use image editor. Open a picture, draw on it, save it, get on with your day.'
-New-Card 'og-snipper.png'  'Snipper'  'Screen capture and annotation. Draw a rectangle around what matters, mark it up, and send it.'
-New-Card 'og-shrink.png'   'Shrink'   'A batch image resizer that takes the constraint you actually have, and measures the result.'
+New-Card 'og-home.png'     'Buache Systems' 'Swiss software for productivity and sovereignty. Small, free desktop apps for Linux. No account, no cloud, no tracking.'
+New-Card 'og-paint.png'    'Paint'    'Open a picture, draw on it, save it. A simple image editor that fits in one window.'
+New-Card 'og-snipper.png'  'Snipper'  'Capture your screen, mark it up, send it.'
+New-Card 'og-shrink.png'   'Shrink'   'Make a folder of images small enough to send.'
 New-Card 'og-download.png' 'Download' 'One .deb per app, for x86-64 Linux. No installer, no account, nothing to activate.'
 
 # --- apple-touch-icon -------------------------------------------------------
