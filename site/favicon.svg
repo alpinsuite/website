@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Buache Systems">
+  <title>Buache Systems</title>
+  <!-- The small variant of the mark: eight dots at larger radii, because the
+       nine-dot original turns to mush below 24px. Colours are literal and the
+       media query is inside the file, because an icon has no stylesheet to
+       inherit from. The two ambers are the brand's two values of one colour,
+       the darker one for the light ground. -->
+  <style>
+    .dots { fill: #1A1D1B; }
+    .accent { fill: #C77410; }
+    @media (prefers-color-scheme: dark) {
+      .dots { fill: #F1F2EF; }
+      .accent { fill: #E8901F; }
+    }
+  </style>
+  <g class="dots">
+    <circle cx="24" cy="24" r="7"/><circle cx="52" cy="24" r="10"/><circle cx="80" cy="24" r="14"/>
+    <circle cx="24" cy="52" r="10"/><circle cx="52" cy="52" r="14"/><circle cx="80" cy="52" r="18"/>
+    <circle cx="24" cy="80" r="14"/><circle cx="52" cy="80" r="18"/>
+  </g>
+  <circle class="accent" cx="80" cy="80" r="20"/>
+</svg>

@@ -1,0 +1,23 @@
+:root {
+  /* brand */
+  --bu-ink:        #1A1D1B;
+  --bu-paper:      #F1F2EF;
+  --bu-amber:      #E8901F;     /* on dark grounds, and at large sizes */
+  --bu-amber-dark: #C77410;  /* on light grounds, and below ~48px  */
+
+  /* app hues (gradient stop 1 / stop 2) */
+  --bu-paint-1:   #E04D66;  --bu-paint-2:   #B81F43;
+  --bu-shrink-1:  #3E9E80;  --bu-shrink-2:  #1E7059;
+  --bu-snipper-1: #8A6FE0;  --bu-snipper-2: #5B3FC4;
+  --bu-mail-1:    #4A55CE;  --bu-mail-2:    #2E36A8;
+  --bu-team-1:    #2E3234;  --bu-team-2:    #141719;
+
+  /* type */
+  --bu-font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bu-font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* geometry */
+  --bu-radius-icon: 23%;
+  --bu-radius-ui:   4px;
+  --bu-icon-stroke: 6.5;
+}

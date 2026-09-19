@@ -1,0 +1,82 @@
+name: Deploy site
+
+# Publishes site/ to GitHub Pages. There is no build step: the directory is
+# uploaded as it stands, which is the same thing you get from serving it
+# locally, so what you test is what ships.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time. Queue rather than cancel: leaving the previous
+# version live is fine, but interrupting an upload halfway is not.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The one promise this site makes that it could break without noticing.
+      # A third-party *request* is a subresource load: src, srcset, url() and
+      # <link>. An <a href> to github.com is a hyperlink and loads nothing, so
+      # it is not what this looks for.
+      - name: No third-party requests
+        run: |
+          if grep -rnE '(src|srcset)="https?://|url\(["'"'"']?https?://|<link[^>]+href="https?://' \
+               site --include='*.html' --include='*.css' \
+             | grep -v 'rel="canonical"'; then
+            echo "::error::A page loads a subresource from another host. See the matches above."
+            exit 1
+          fi
+          echo "No external subresources."
+
+      - name: Internal links resolve
+        run: |
+          grep -rhoE '(href|src|srcset)="/[^"]+"' site --include='*.html' \
+            | sed -E 's/^[a-z]+="//; s/"$//; s/#.*$//' \
+            | sort -u > links.txt
+          status=0
+          while read -r link; do
+            [ -z "$link" ] && continue
+            case "$link" in
+              */) target="site${link}index.html" ;;
+              *)  target="site${link}" ;;
+            esac
+            if [ ! -e "$target" ]; then
+              echo "::error::broken internal link: $link"
+              status=1
+            fi
+          done < links.txt
+          rm -f links.txt
+          exit $status
+
+  deploy:
+    needs: check
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

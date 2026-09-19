@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Mail">
+<defs><linearGradient id="gmail" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A55CE"/><stop offset="1" stop-color="#2E36A8"/></linearGradient></defs>
+<rect width="100" height="100" rx="23" fill="url(#gmail)"/>
+<g fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 46 50 24l30 22"/><path d="M20 46v26a4 4 0 0 0 4 4h52a4 4 0 0 0 4-4V46"/><path d="M20 72 42 54M80 72 58 54"/></g>
+</svg>
