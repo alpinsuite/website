@@ -84,8 +84,13 @@
       <h1>Snipper</h1>
       <p class="tagline">Capture your screen, mark it up, send it.</p>
       <ul class="links">
-        <li><span class="button-pending">Coming soon</span></li>
+        <li><a class="button" href="/download/">Download</a></li>
       </ul>
+
+      <div class="status">
+        <p><strong>First release.</strong> Capture, annotation and the editor are driven on a real X server on every change — the application is started, a region is dragged out, and the result is checked against the pixels that were on screen.</p>
+        <p>Two things it does not do yet. Under Wayland the capture is handed to the desktop’s own screenshot portal, which is tested here against a stand-in that follows the specification rather than against a real GNOME or KDE session. And a region is selected on one monitor: the overlay covers the screen the window is on, so a selection cannot be dragged onto a second one. A full-screen capture still takes every monitor.</p>
+      </div>
 
       <section class="section">
         <h2>What it does</h2>
@@ -102,7 +107,7 @@
       <section class="section">
         <h2>Source and licence</h2>
         <dl class="facts">
-          <dt>Version</dt><dd>0.1.0, not released yet</dd>
+          <dt>Version</dt><dd>0.1.0</dd>
           <dt>Licence</dt><dd>GPL-3.0-or-later</dd>
           <dt>Platform</dt><dd>Linux desktop, x86-64</dd>
           <dt>Bill of materials</dt><dd><a href="/snipper/sbom.cdx.json">sbom.cdx.json</a>, every dependency and its exact version, in CycloneDX format</dd>
@@ -110,6 +115,7 @@
         <ul class="links">
           <li><a href="https://github.com/alpinsuite/snipper">Source code</a></li>
           <li><a href="https://github.com/alpinsuite/snipper/issues">Report a problem</a></li>
+          <li><a href="https://github.com/alpinsuite/snipper/blob/main/CHANGELOG.md">Changelog</a></li>
         </ul>
       </section>
 

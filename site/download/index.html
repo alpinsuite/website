@@ -83,7 +83,7 @@
       <p class="tagline">One <code>.deb</code> per app, for x86-64 Linux. No installer, no account, and nothing to activate once it is on the machine.</p>
 
       <div class="status">
-        <p><strong>Two of the three are published.</strong> Paint and Shrink have releases; Snipper is still being built and has no package to download yet. This page will list it the day it does, and its row says so rather than offering a link that goes nowhere.</p>
+        <p><strong>All three are published.</strong> Each row links to a release that exists; when one does not, it says so rather than offering a link that goes nowhere.</p>
       </div>
 
       <ul class="downloads">
@@ -101,9 +101,9 @@
           <img class="app-icon" src="/assets/brand/snipper.svg" width="36" height="36" alt="">
           <div class="download-what">
             <h3><a href="/snipper/">Snipper</a></h3>
-            <p class="download-file">No package yet — <a href="https://github.com/alpinsuite/snipper">build it from source</a></p>
+            <p class="download-file">snipper_0.1.0_amd64.deb</p>
           </div>
-          <span class="button-pending download-get">Not published</span>
+          <a class="button download-get" href="https://github.com/alpinsuite/snipper/releases/latest">Download .deb</a>
         </li>
         <li>
           <img class="app-icon" src="/assets/brand/shrink.svg" width="36" height="36" alt="">
@@ -127,14 +127,14 @@
 
       <section class="section">
         <h2>From the APT repository</h2>
-        <p>The repository way, so <code>apt upgrade</code> keeps the apps current along with everything else on the machine. One repository serves all of them; today it holds Paint and Shrink.</p>
+        <p>The repository way, so <code>apt upgrade</code> keeps the apps current along with everything else on the machine. One repository serves all three.</p>
         <div class="command" data-copy-label="APT repository setup and install">
 <pre><code>sudo install -d -m 0755 /etc/apt/keyrings
 curl -fsSL https://apt.buache.systems/buache-systems-archive-keyring.gpg \
   | sudo tee /etc/apt/keyrings/buache-systems.gpg &gt; /dev/null
 sudo curl -fsSL -o /etc/apt/sources.list.d/buache-systems.sources \
   https://apt.buache.systems/buache-systems.sources
-sudo apt update &amp;&amp; sudo apt install paint shrink</code></pre>
+sudo apt update &amp;&amp; sudo apt install paint snipper shrink</code></pre>
         </div>
         <p>The repository is a signed, static package index. Nothing about installing or updating asks you who you are.</p>
       </section>
